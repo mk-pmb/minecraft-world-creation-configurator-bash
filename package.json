@@ -1,0 +1,32 @@
+{ "name": "minecraft-world-creation-configurator",
+  "version": "0.0.1",
+  "description": "Automatically fill in your favorite seed, game rules and other options into the Minecraft world creation settings.",
+  "keywords": [
+    "automate",
+    "automatically",
+    "create new world",
+    "create world",
+    "customize",
+    "minecraft",
+    "new world",
+    "world creation",
+    "xdotool"
+  ],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/minecraft-world-creation-configurator-bash/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/minecraft-world-creation-configurator-bash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/minecraft-world-creation-configurator-bash/issues"
+  },
+  "contributors": [],
+
+  "private": true, "license": "ISC",
+
+
+
+  "engines": { "bash": ">=4", "xdotool": ">=3" }
+}
