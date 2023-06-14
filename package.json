@@ -1,5 +1,5 @@
 { "name": "minecraft-world-creation-configurator",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Automatically fill in your favorite seed, game rules and other options into the Minecraft world creation settings.",
   "keywords": [
     "automate",

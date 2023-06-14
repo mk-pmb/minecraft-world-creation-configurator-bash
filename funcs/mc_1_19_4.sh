@@ -4,6 +4,7 @@
 
 function wcc_mc_1_19_4 () {
   eval "$(easycfg_to_local_var '
+    ADD_DP=manuallyAddDataPacks
     GAME_EDI=gameEdition
     GAME_VER=gameVersion
     ')"
@@ -83,7 +84,14 @@ function wcc_mc_1_19_4 () {
   todo_add 'Confirm experiments selection >> key Down Left space'
   todo_add 'Wait for experiments to be applied >> sleep 3'
 
-  todo_add_confirm_button 'Confirm world creation' Left || return $?
+  case "$ADD_DP" in
+    no ) todo_add_confirm_button 'Confirm world creation' Left || return $?;;
+    yes ) todo_add 'Open datapacks folder >> key Down space' || return $?;;
+    * )
+      echo "E: Bad value for manuallyAddDataPacks:" \
+        "Must be 'yes' or 'no', not '$ADD_DP'" >&2
+      return 4;;
+  esac
 }
 
 
