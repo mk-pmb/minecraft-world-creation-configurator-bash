@@ -35,7 +35,13 @@ function easycfg_read_args () {
         V="${V# }"
         CFG["$K"]="$V";;
 
-      * ) echo "E: Unsupported syntax: $LN" >&2; return 4;;
+      * )
+        V="${CFG[alias:$LN]}"
+        if [ -n "$V" ]; then
+          INPUT=( "$V" "${INPUT[@]}" )
+          continue
+        fi
+        echo "E: Unsupported syntax: $LN" >&2; return 4;;
     esac
   done
 }
@@ -57,6 +63,15 @@ function easycfg_ignore_settings () {
   for K in "$@"; do
     UNUSED_SETTINGS="${UNUSED_SETTINGS// $K / }"
   done
+}
+
+
+function easycfg_list_all_settings_names () {
+  local KEY=
+  for KEY in "${!CFG[@]}"; do case "$KEY" in
+    *:* ) ;;
+    * ) echo "$KEY";;
+  esac; done
 }
 
 

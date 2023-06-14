@@ -13,7 +13,7 @@ function wcc_cli_init () {
   easycfg_read_args "$@" || return $?
 
   autoadjust_missing_options || return $?
-  local UNUSED_SETTINGS=" ${!CFG[*]} "
+  local UNUSED_SETTINGS=" $(easycfg_list_all_settings_names | tr '\n' ' ')"
   eval "$(easycfg_to_local_var '
     REMAINING_AUTO_CONFIRMS=autoConfirmInteractions
     ')"
