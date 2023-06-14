@@ -52,6 +52,14 @@ function easycfg_to_local_var () {
 }
 
 
+function easycfg_ignore_settings () {
+  local K=
+  for K in "$@"; do
+    UNUSED_SETTINGS="${UNUSED_SETTINGS// $K / }"
+  done
+}
+
+
 
 
 

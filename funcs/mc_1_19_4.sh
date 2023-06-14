@@ -9,6 +9,7 @@ function wcc_mc_1_19_4 () {
     ')"
   case "$GAME_EDI v$GAME_VER" in
     'java v1.19.4' ) ;;
+    'java v1.20' ) ;;
     * ) REMAINING_AUTO_CONFIRMS="!Unsupported game edition "$(
       )"'$GAME_EDI' and/or version '$GAME_VER'";;
   esac
@@ -74,7 +75,11 @@ function wcc_mc_1_19_4 () {
 
   todo_add 'Open the experiments page >> key Down space'
   todo_add_spaces_enum expBundles no yes || return $?
-  todo_add_spaces_enum expUpdateOneTwenty no yes || return $?
+  case "$GAME_EDI v$GAME_VER" in
+    'java v1.19.4' )
+      todo_add_spaces_enum expUpdateOneTwenty no yes || return $?;;
+    * ) easycfg_ignore_settings expUpdateOneTwenty;;
+  esac
   todo_add 'Confirm experiments selection >> key Down Left space'
   todo_add 'Wait for experiments to be applied >> sleep 3'
 
